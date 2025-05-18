@@ -1,69 +1,34 @@
 # Graph Class Implementation
 
-class Graph:
-    """
-    A graph implementation using adjacency list representation.
-    
-    Attributes:
-        adj_list (dict): Stores the adjacency list where keys are vertices 
-                         and values are lists of adjacent vertices.
-    """
-    
-    def __init__(self):
-        """Initialize an empty adjacency list dictionary."""
-        self.adj_list = {}
-    
-    def print_graph(self):
-        """Print the graph structure showing each vertex and its neighbors."""
-        for vertex in self.adj_list:
-            print(vertex, ':', self.adj_list[vertex])
-    
-    def add_vertex(self, vertex):
-        """
-        Add a vertex to the graph if it doesn't exist.
-        
-        Args:
-            vertex: The vertex to be added to the graph
-            
-        Returns:
-            bool: True if vertex was added, False if it already exists
-        """
-        if vertex not in self.adj_list:
-            self.adj_list[vertex] = []
-            return True
-        return False
+## Overview
+This Python implementation provides a basic Graph data structure using an adjacency list representation. The current version supports vertex addition and graph visualization.
 
+## Features
+- **Adjacency List Storage**: Uses a dictionary to store vertices and their connections
+- **Vertex Management**: Add new vertices to the graph
+- **Graph Visualization**: Print the current graph structure
 
-# Usage Example
-if __name__ == "__main__":
-    # Create a new graph
-    graph = Graph()
+## Class Methods
 
-    # Add vertices
-    graph.add_vertex("A")
-    graph.add_vertex("B")
-    graph.add_vertex("C")
+### `__init__(self)`
+- Initializes an empty adjacency list dictionary
 
-    # Print the graph
-    print("Graph Structure:")
-    graph.print_graph()
+### `print_graph(self)`
+- Prints the graph structure in the format:  
+  `vertex : [adjacent_vertex1, adjacent_vertex2, ...]`
 
-"""
-README:
-This Graph class implements a basic adjacency list representation of a graph.
-Current functionality includes:
-- Adding vertices
-- Printing the graph structure
+### `add_vertex(self, vertex)`
+- Adds a new vertex to the graph
+- Parameters:
+  - `vertex`: The vertex to add (any hashable type)
+- Returns:
+  - `True` if vertex was added
+  - `False` if vertex already exists
 
-The adjacency list is stored as a dictionary where:
-- Keys are vertices
-- Values are lists of adjacent vertices
-
-Example Output:
-A : []
-B : []
-C : []
-
-Note: This is a basic implementation that currently only handles vertices.
-Edge functionality can be added to connect vertices.
-"""
+## Example Usage
+```python
+graph = Graph()
+graph.add_vertex("A")
+graph.add_vertex("B")
+graph.add_vertex("C")
+graph.print_graph()
